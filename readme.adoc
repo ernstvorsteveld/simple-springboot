@@ -9,5 +9,10 @@ Build the image: ```docker build -t demo .```
 
 Some example startup commands:
 
+=== Start the first instance:
 [source,shell]
-docker run --rm -h demo1  --net=docker --add-host=consul1:192.168.99.100 -p 8082:8082 demo --server.port=8082 --spring.cloud.consul.discovery.preferIpAddress=true --spring.application.instance_id=1
+docker run --rm -h demo1 --net=docker --add-host=consul1:192.168.99.100 -p 8082:8082 demo --server.port=8082 --spring.cloud.consul.discovery.preferIpAddress=true --spring.application.instance_id=1
+
+=== Start the next instance:
+[source,shell]
+docker run --rm -h demo2 --net=docker --add-host=consul1:192.168.99.100 -p 8081:8081 demo --server.port=8081 --spring.cloud.consul.discovery.preferIpAddress=true --spring.application.instance_id=2
