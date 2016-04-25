@@ -1,6 +1,10 @@
 spring:
+  application:
+    name: demo
+    instance_id: 1.0
   cloud:
     consul:
       host: consul1
       discovery:
-        preferIpAddress: false
+        preferIpAddress: true
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}

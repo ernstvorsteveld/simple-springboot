@@ -1,15 +1,13 @@
 = Simple spring boot app
 
+== Build image
+
+Build the image: ```docker build -t demo .```
+
+
 == Startup
 
 Some example startup commands:
 
 [source,shell]
-docker run --rm --net=docker --add-host=consul1:192.168.99.100 -p 8081:8081 demo --spring.cloud.consul.discovery.hostname=172.18.0.3 --server.port=8081
-
-[source,shell]
-docker run --rm --net=docker -h demo --add-host=consul1:192.168.99.100 -p 8081:8081 demo --spring.cloud.consul.discovery.hostname=172.18.0.3 --server.port=8081
-
-[source,shell]
-docker run --rm --net=docker --add-host=consul1:192.168.99.100 -p 8080:8080 demo --spring.cloud.consul.discovery.hostname=demo
-
+docker run --rm -h demo1  --net=docker --add-host=consul1:192.168.99.100 -p 8082:8082 demo --server.port=8082 --spring.cloud.consul.discovery.preferIpAddress=true --spring.application.instance_id=1
