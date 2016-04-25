@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+
+plugins {
+    id "java"
+}
+
+apply plugin: 'spring-boot'
+
+repositories {
+    maven { url "http://repo.spring.io/release" }
+    maven { url "http://repo.spring.io/libs-milestone" }
+    maven { url "http://repo.spring.io/libs-snapshot-local" }
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-milestone-local" }
+}
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-consul-config:1.0.0.M1")
+    compile("org.springframework.cloud:spring-cloud-consul-discovery:1.0.0.M1")
+    compile("org.springframework.cloud:spring-cloud-consul-bus:1.0.0.M1")
+    compile("org.springframework.cloud:spring-cloud-commons:1.1.0.M4")
+}
+

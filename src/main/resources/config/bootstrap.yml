@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    consul:
+      host: consul1
+      discovery:
+        preferIpAddress: false
